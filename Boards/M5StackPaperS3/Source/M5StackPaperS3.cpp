@@ -73,14 +73,14 @@ extern const Configuration m5stack_papers3 = {
                 .data6_io_num = GPIO_NUM_NC,
                 .data7_io_num = GPIO_NUM_NC,
                 .data_io_default_level = false,
-                .max_transfer_sz = PAPERS3_TRANSACTION_SIZE,
+                .max_transfer_sz = 0,
                 .flags = 0,
                 .isr_cpu_id = ESP_INTR_CPU_AFFINITY_AUTO,
                 .intr_flags = 0
             },
             .initMode = spi::InitMode::ByTactility,
             .isMutable = false,
-            .lock = tt::lvgl::getSyncLock() // esp_lvgl_port owns the lock for the display
+            .lock = nullptr
         }
     },
 };
