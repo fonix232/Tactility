@@ -14,6 +14,9 @@ function releaseSdk() {
 
 SECONDS=0
 
+releaseSdk release/TactilitySDK-esp32
+releaseSdk release/TactilitySDK-esp32s3
+
 build elecrow-crowpanel-advance-28
 release elecrow-crowpanel-advance-28
 
@@ -40,8 +43,6 @@ release lilygo-tdongle-s3
 
 build lilygo-tlora-pager
 release lilygo-tlora-pager
-
-releaseSdk release/TactilitySDK-esp32s3
 
 build cyd-2432s024c
 release cyd-2432s024c
@@ -70,13 +71,14 @@ release cyd-jc8048w550c
 build m5stack-core2
 release m5stack-core2
 
-releaseSdk release/TactilitySDK-esp32
-
 build m5stack-cardputer
 release m5stack-cardputer
 
 build m5stack-cores3
 release m5stack-cores3
+
+build m5stack-papers3
+release m5stack-papers3
 
 build m5stack-stickc-plus
 release m5stack-stickc-plus
