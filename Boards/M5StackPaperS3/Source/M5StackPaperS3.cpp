@@ -14,7 +14,7 @@ using namespace tt::hal;
 static std::vector<std::shared_ptr<Device>> createDevices() {
     return {
         createPower(),
-        // createDisplay(),
+        createDisplay(),
         createSdCard()
     };
 }

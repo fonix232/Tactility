@@ -1,17 +1,16 @@
 #include "Display.hpp"
 
 #include <Gt911Touch.h>
+#include <FastEpdDisplayHelper.h>
 
-
-// TODO: Write EPD driver 
 
 static std::shared_ptr<tt::hal::touch::TouchDevice> createTouch() {
-    // Note for future changes: Reset pin is 48 and interrupt pin is 47
+    // Note: Interrupt pin is 47
     auto configuration = std::make_unique<Gt911Touch::Configuration>(
         I2C_NUM_0,
-        PAPERS3_EPD_HORIZONTAL_RESOLUTION,
         PAPERS3_EPD_VERTICAL_RESOLUTION,
-        false,
+        PAPERS3_EPD_HORIZONTAL_RESOLUTION,
+        true,
         false,
         false,
         GPIO_NUM_NC,
@@ -30,4 +29,7 @@ std::shared_ptr<tt::hal::display::DisplayDevice> createDisplay() {
 
     auto display = std::make_shared<FastEPDDisplay>(std::move(configuration));
     return std::reinterpret_pointer_cast<tt::hal::display::DisplayDevice>(display);
+
+    // FastEPD implementation
+    return FastEpdDisplayHelper::createM5PaperS3Display(touch);
 }
