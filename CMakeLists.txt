@@ -40,6 +40,7 @@ if (DEFINED ENV{ESP_IDF_VERSION})
         "Libraries/esp_lvgl_port"
         "Libraries/elf_loader"
         "Libraries/FastEPD"
+        "Libraries/epdiy"
         "Libraries/lvgl"
         "Libraries/lv_screenshot"
         "Libraries/minitar"

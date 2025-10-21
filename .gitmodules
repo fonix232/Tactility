@@ -16,3 +16,6 @@
 [submodule "Libraries/FastEPD"]
 	path = Libraries/FastEPD
 	url = https://github.com/bitbank2/FastEPD
+[submodule "Libraries/epdiy"]
+	path = Libraries/epdiy
+	url = https://github.com/fonix232/epdiy

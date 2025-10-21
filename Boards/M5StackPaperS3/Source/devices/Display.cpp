@@ -1,7 +1,9 @@
 #include "Display.hpp"
 
 #include <Gt911Touch.h>
-#include <FastEpdDisplayHelper.h>
+#include <EpdiyDisplayHelper.h>
+// #include <FastEpdDisplayHelper.h>
+// #include <M5GfxDisplayHelper.h>
 
 
 static std::shared_ptr<tt::hal::touch::TouchDevice> createTouch() {
@@ -10,9 +12,9 @@ static std::shared_ptr<tt::hal::touch::TouchDevice> createTouch() {
         I2C_NUM_0,
         PAPERS3_EPD_VERTICAL_RESOLUTION,
         PAPERS3_EPD_HORIZONTAL_RESOLUTION,
-        true,
-        false,
-        false,
+        true, // swapXY
+        true, // mirrorX
+        false, // mirrorY
         GPIO_NUM_NC,
         GPIO_NUM_48
     );
@@ -22,14 +24,8 @@ static std::shared_ptr<tt::hal::touch::TouchDevice> createTouch() {
 
 std::shared_ptr<tt::hal::display::DisplayDevice> createDisplay() {
     auto touch = createTouch();
-
-    auto configuration = std::make_unique<FastEPDDisplay::Configuration>(
+    // EPDiy implementation - commented out for testing
+    return EpdiyDisplayHelper::createM5PaperS3Display(
         touch
     );
-
-    auto display = std::make_shared<FastEPDDisplay>(std::move(configuration));
-    return std::reinterpret_pointer_cast<tt::hal::display::DisplayDevice>(display);
-
-    // FastEPD implementation
-    return FastEpdDisplayHelper::createM5PaperS3Display(touch);
 }
